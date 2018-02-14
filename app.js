@@ -1,6 +1,6 @@
 (function() {
-  let currentView = window.views[1];
-  let selectedUser = 'Admin';
+  let currentView = window.views[0];
+  let selectedUser;
   window.changeView(currentView, selectedUser);
 
   window.currentView = currentView;
