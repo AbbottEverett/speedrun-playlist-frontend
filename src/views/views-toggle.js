@@ -13,10 +13,10 @@
         setHomeView();
         break;
       case 'USER':
-        setUserView();
+        setUserView(user);
         break;
       case 'PLAYLIST':
-        setPlaylistView();
+        setPlaylistView(user);
         break;
       case 'RUN':
         console.log('Will be handled later');
@@ -41,19 +41,19 @@
     subtitle.textContent = 'Select A User';
   }
   function setUserView(user) {
-    if (user === 'Admin') {
-      console.log('Test');
-    } else {
-      backBtn.classList.add('d-none');
+    backBtn.classList.add('d-none');
+    subtitle.textContent = 'Choose A Playlist';
+    if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
-      subtitle.textContent = 'Choose A Playlist';
     }
-
   }
-  function setPlaylistView() {
-    viewToggle.classList.add('d-none');
+  function setPlaylistView(user) {
     subtitle.textContent = 'Pick A Run';
+    if (user !== 'Admin') {
+      viewToggle.classList.add('d-none');
+    }
   }
+
   window.views = views;
   window.changeView = changeView;
 })();
