@@ -18,9 +18,16 @@
       case 'PLAYLIST':
         title.textContent = data.name;
         footer.textContent = `USER_ID: ${data.user_id}`;
+        item.setAttribute('data-playlist-id', data.id);
+        item.addEventListener('click', (e) => {
+          window.playlist_id = item.getAttribute('data-playlist-id');
+          window.currentView = window.views[2];
+          window.changeView(window.currentView, window.selectedUser);
+        });
         break;
       case 'RUN':
         title.textContent = data.name;
+        // item.setAttribute('data-run-id', ${data.id});
         break;
       default:
         return 'COULD NOT CREATE ITEM';
@@ -67,7 +74,7 @@
           console.log(err);
         });
     }
-    
+
     return window.getAllPlaylistsByUserId(window.user_id)
       .then((res) => {
         console.log(res.data.data);
