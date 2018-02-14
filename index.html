@@ -22,40 +22,65 @@
 			<div class="row justify-content-center subtitle">
 				<h2>Change Me Depending on View</h2>
 			</div>
-			<div class="row">
-				<label for="user-dropdown">
-					User:
-				</label>
-				<div class="dropdown">
-				  <button class="btn dropdown-toggle" type="button" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Dropdown
-				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-				    <button class="dropdown-item" type="button">Action</button>
-				    <button class="dropdown-item" type="button">Another action</button>
-				    <button class="dropdown-item" type="button">Something else here</button>
-				  </div>
+			<div class="row justify-content-between">
+				<div class="d-flex">
+					<label for="user-dropdown">
+						User:
+					</label>
+					<div class="dropdown">
+					  <button class="btn dropdown-toggle" type="button" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Dropdown
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+					    <button class="dropdown-item" type="button">Action</button>
+					    <button class="dropdown-item" type="button">Another action</button>
+					    <button class="dropdown-item" type="button">Something else here</button>
+					  </div>
+					</div>
 				</div>
-				<label>
-					View:
-				</label>
-				<div class="btn-group" role="group" aria-label="Basic example">
-				  <button type="button" class="btn btn-secondary" disabled>Playlists</button>
-				  <button type="button" class="btn btn-primary">Runs</button>
+				<div class="d-none">
+					<label>
+						View:
+					</label>
+					<div class="btn-group" role="group" aria-label="Basic example">
+					  <button type="button" class="btn btn-secondary" disabled>Playlists</button>
+					  <button type="button" class="btn btn-primary">Runs</button>
+					</div>
 				</div>
-				<button type="button" class="btn btn-primary">Find A New Speedrun</button>
-				<button type="button" class="btn btn-danger">
+
+				<button type="button" class="btn btn-primary d-none">Find A New Speedrun</button>
+				<button type="button" class="btn btn-danger d-none">
 					<i class="fas fa-angle-right"></i>
 					Back
 				</button>
 			</div>
+
+			<!-- Template for item-container -->
+			<div class="item-container d-none">
+				<div class="d-flex justify-content-between">
+					<h3>Playlist Name</h3>
+					<div>
+						<i class="fas fa-cog fa-2x"></i>
+						<i class="fas fa-times fa-2x"></i>
+					</div>
+				</div>
+				<div>
+					<span>User:</span>
+					<span>Everett</span>
+					<span>Duration:</span>
+					<span>100:00</span>
+					<span>Platform:</span>
+					<span>SNES</span>
+					<span>Category:</span>
+					<span>Any%</span>
+				</div>
+			</div>
 			<div id="root"></div>
 		</div>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 		<script src="./src/services/runs.js"></script>
 		<script src="./src/services/playlists.js"></script>
 		<script src="./src/services/users.js"></script>

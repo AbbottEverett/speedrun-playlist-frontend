@@ -8,9 +8,20 @@ h2 {
 	font-size: 3em;
 }
 
-.subtitle{
+h3 {
+	font-family: Helvetica, sans serif;
+	font-size: 2em;
+}
+
+.subtitle {
 	margin-top: 15px;
-	margin-bottom:15px;
+	margin-bottom: 15px;
+}
+
+.item-container {
+	width: 90%;
+	border: 1px solid black;
+	padding: 10px;
 }
 
 #page-title {
@@ -20,7 +31,7 @@ h2 {
 
 #bar {
 	width: 100%;
-	height: 20px;
+	height: 5px;
 	background-color: black;
 	border: 1px solid black;
 }
