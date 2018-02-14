@@ -39,7 +39,8 @@
   userDropdownMenu.addEventListener('click', (e) => {
     e.preventDefault();
     const user = e.target.textContent;
-    renderDropDown('USER', user);
+    window.selectedUser = user;
+    window.changeView('USER', window.selectedUser);
   });
   window.renderDropDown = renderDropDown;
 })();
