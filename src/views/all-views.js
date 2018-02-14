@@ -3,6 +3,7 @@
   const itemList = document.getElementById('item-list');
   const backBtn = document.getElementById('back-btn');
   const findBtn = document.getElementById('find-btn');
+  const createPlaylistBtn = document.getElementById('create-playlist-btn');
   const viewToggle = document.getElementById('view-toggle');
   const playlistsToggle = document.getElementById('playlists-toggle');
   const runsToggle = document.getElementById('runs-toggle');
@@ -31,6 +32,7 @@
     itemList.classList.remove('d-none');
     backBtn.classList.remove('d-none');
     findBtn.classList.remove('d-none');
+    createPlaylistBtn.classList.remove('d-none');
     viewToggle.classList.remove('d-none');
     subtitle.textContent = '';
     window.renderDropDown(view, user);
@@ -38,23 +40,25 @@
   function setHomeView() {
     itemList.classList.add('d-none');
     backBtn.classList.add('d-none');
-    findBtn.classList.add('d-none');
+    createPlaylistBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
     subtitle.textContent = 'Select A User';
   }
   function setUserView(user) {
-    backBtn.classList.add('d-none');
     subtitle.textContent = 'Choose A Playlist';
     runsToggle.disabled = false;
     playlistsToggle.disabled = true;
     const type = 'PLAYLIST';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
+    } else {
+      createPlaylistBtn.classList.add('d-none');
     }
     window.renderItemList(user, type);
   }
   function setPlaylistView(user) {
     subtitle.textContent = 'Pick A Run';
+    createPlaylistBtn.classList.add('d-none');
     const type = 'RUN';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
