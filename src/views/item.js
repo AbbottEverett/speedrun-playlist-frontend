@@ -58,7 +58,6 @@
         .then((res) => {
           const playlistsList = res.data.data;
           playlistsList.forEach((playlistData) => {
-            console.log(playlistData);
             const item = createItem(playlistData, 'PLAYLIST');
             itemList.appendChild(item);
           });
