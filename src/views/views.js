@@ -12,17 +12,19 @@
     viewToggle.classList.remove('d-none');
     subtitle.textContent = '';
   }
-  function setHomeView() {
+  function setHomeView(view) {
     itemList.classList.add('d-none');
     backBtn.classList.add('d-none');
     findBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
     subtitle.textContent = 'Select A User';
+    window.renderDropDown(view);
   }
-  function setUserView() {
+  function setUserView(view) {
     backBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
     subtitle.textContent = 'Choose A Playlist';
+    window.renderDropDown(view);
   }
   function setPlaylistView() {
     viewToggle.classList.add('d-none');
