@@ -41,6 +41,7 @@
     subtitle.textContent = 'Select A User';
   }
   function setUserView(user) {
+    // change viewToggle stuff
     backBtn.classList.add('d-none');
     subtitle.textContent = 'Choose A Playlist';
     const type = 'PLAYLIST';
@@ -51,9 +52,11 @@
   }
   function setPlaylistView(user) {
     subtitle.textContent = 'Pick A Run';
+    const type = 'RUN';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
     }
+    window.renderItemList(user, type);
   }
 
   window.views = views;

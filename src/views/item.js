@@ -20,6 +20,7 @@
         footer.textContent = `USER_ID: ${data.user_id}`;
         break;
       case 'RUN':
+        title.textContent = data.name;
         break;
       default:
         return 'COULD NOT CREATE ITEM';
@@ -81,7 +82,7 @@
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
     console.log('Not Admin');
   }

@@ -8,9 +8,11 @@
     if (selection === runsToggle) {
       runsToggle.disabled = true;
       playlistsToggle.disabled = false;
+      window.changeView(window.views[2], 'Admin');
     } else {
       runsToggle.disabled = false;
       playlistsToggle.disabled = true;
+      window.changeView(window.views[1], 'Admin');
     }
   });
 })();
