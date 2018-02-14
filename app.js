@@ -1,9 +1,9 @@
 (function() {
-  // const root = document.getElementById('root');
-  const views = ['HOME', 'USER', 'PLAYLIST', 'RUN'];
-  let currentView = views[0];
+  let currentView = window.views[0];
   let selectedUser;
-  window.changeView(currentView);
+  
+  window.changeView(currentView, selectedUser);
 
+  window.currentView = currentView;
   window.selectedUser = selectedUser;
 })();

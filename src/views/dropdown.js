@@ -18,7 +18,6 @@
             userDropdownMenu.appendChild(button);
           }
         });
-        console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -36,11 +35,15 @@
       userDropdownMenu.removeChild(userDropdownMenu.firstChild);
     }
   }
-  userDropdownMenu.addEventListener('click', (e) => {
-    e.preventDefault();
-    const user = e.target.textContent;
+  function dropdownOptionSelected(event) {
+    event.preventDefault();
+    const user = event.target.textContent;
     window.selectedUser = user;
-    window.changeView('USER', window.selectedUser);
-  });
+    window.currentView = window.views[1];
+    window.changeView(window.currentView, window.selectedUser);
+  }
+
+  userDropdownMenu.addEventListener('click', dropdownOptionSelected);
+
   window.renderDropDown = renderDropDown;
 })();

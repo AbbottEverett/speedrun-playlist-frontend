@@ -4,12 +4,13 @@
   const backBtn = document.getElementById('back-btn');
   const findBtn = document.getElementById('find-btn');
   const viewToggle = document.getElementById('view-toggle');
+  const views = ['HOME', 'USER', 'PLAYLIST', 'RUN'];
 
   function changeView(view, user) {
     clearPreviousView(view, user);
     switch(view) {
       case 'HOME':
-        setHomeView(view);
+        setHomeView();
         break;
       case 'USER':
         setUserView();
@@ -32,22 +33,27 @@
     subtitle.textContent = '';
     window.renderDropDown(view, user);
   }
-  function setHomeView(view) {
+  function setHomeView() {
     itemList.classList.add('d-none');
     backBtn.classList.add('d-none');
     findBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
     subtitle.textContent = 'Select A User';
   }
-  function setUserView(view) {
-    backBtn.classList.add('d-none');
-    viewToggle.classList.add('d-none');
-    subtitle.textContent = 'Choose A Playlist';
+  function setUserView(user) {
+    if (user === 'Admin') {
+      console.log('Test');
+    } else {
+      backBtn.classList.add('d-none');
+      viewToggle.classList.add('d-none');
+      subtitle.textContent = 'Choose A Playlist';
+    }
+
   }
   function setPlaylistView() {
     viewToggle.classList.add('d-none');
     subtitle.textContent = 'Pick A Run';
   }
-
+  window.views = views;
   window.changeView = changeView;
 })();
