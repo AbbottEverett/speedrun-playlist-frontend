@@ -43,9 +43,11 @@
   function setUserView(user) {
     backBtn.classList.add('d-none');
     subtitle.textContent = 'Choose A Playlist';
+    const type = 'PLAYLIST';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
     }
+    window.renderItemList(user, type);
   }
   function setPlaylistView(user) {
     subtitle.textContent = 'Pick A Run';
