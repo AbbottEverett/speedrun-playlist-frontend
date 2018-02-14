@@ -4,6 +4,8 @@
   const backBtn = document.getElementById('back-btn');
   const findBtn = document.getElementById('find-btn');
   const viewToggle = document.getElementById('view-toggle');
+  const playlistsToggle = document.getElementById('playlists-toggle');
+  const runsToggle = document.getElementById('runs-toggle');
   const views = ['HOME', 'USER', 'PLAYLIST', 'RUN'];
 
   function changeView(view, user) {
@@ -41,9 +43,10 @@
     subtitle.textContent = 'Select A User';
   }
   function setUserView(user) {
-    // change viewToggle stuff
     backBtn.classList.add('d-none');
     subtitle.textContent = 'Choose A Playlist';
+    runsToggle.disabled = false;
+    playlistsToggle.disabled = true;
     const type = 'PLAYLIST';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
