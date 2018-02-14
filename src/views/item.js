@@ -27,7 +27,7 @@
         break;
       case 'RUN':
         title.textContent = data.name;
-        // item.setAttribute('data-run-id', ${data.id});
+        item.setAttribute('data-run-id', data.id);
         break;
       default:
         return 'COULD NOT CREATE ITEM';
@@ -102,7 +102,27 @@
           console.log(err);
         });
     }
-    console.log('Not Admin');
+    return window.getAllRunsFromAPlaylist(window.playlist_id)
+      .then((res) => {
+        console.log(res.data.data);
+        const playlistRunsList = res.data.data;
+        const promises = [];
+        playlistRunsList.forEach((playlistRunsData) => {
+          const promise = window.getRunById(playlistRunsData.run_id);
+          promises.push(promise);
+        });
+        return Promise.all(promises);
+      })
+      .then((responses) => {
+        responses.forEach((response) => {
+          let runData = response.data.data;
+          const item = createItem(runData, 'RUN');
+          itemList.appendChild(item);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   window.renderItemList = renderItemList;
 })();
