@@ -65,9 +65,21 @@
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
-    console.log('Not Admin');
+    
+    return window.getAllPlaylistsByUserId(window.user_id)
+      .then((res) => {
+        console.log(res.data.data);
+        const playlistsList = res.data.data;
+        playlistsList.forEach((playlistData) => {
+          const item = createItem(playlistData, 'PLAYLIST');
+          itemList.appendChild(item);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   function renderRuns(user) {
     if (user === 'Admin') {
@@ -75,7 +87,6 @@
         .then((res) => {
           const runsList = res.data.data;
           runsList.forEach((runData) => {
-            console.log(runData);
             const item = createItem(runData, 'RUN');
             itemList.appendChild(item);
           });
