@@ -24,23 +24,38 @@
           window.currentView = window.views[2];
           window.changeView(window.currentView, window.selectedUser);
         });
+        let allItemsToAppend = {
+          item, header, footer, title, editIcons, updateIcon, deleteIcon
+        };
+        return appendItemElements(allItemsToAppend);
         break;
       case 'RUN':
-        title.textContent = data.name;
-        item.setAttribute('data-run-id', data.id);
+        return window.getRunData(data)
+          .then((response) => {
+            title.textContent = response.name;
+            item.setAttribute('data-run-id', data.id);
+            footer.textContent = `Category: ${response.category} | Platform: ${response.platform} | Duration: ${response.duration}`;
+            let allItemsToAppend = {
+              item, header, footer, title, editIcons, updateIcon, deleteIcon
+            };
+            return appendItemElements(allItemsToAppend);
+          });
         break;
       default:
         return 'COULD NOT CREATE ITEM';
     }
 
-    editIcons.appendChild(updateIcon);
-    editIcons.appendChild(deleteIcon);
-    header.appendChild(title);
-    header.appendChild(editIcons);
-    item.appendChild(header);
-    item.appendChild(footer);
-
-    return item;
+  }
+  function appendItemElements(obj){
+    console.log(obj);
+    obj.editIcons.appendChild(obj.updateIcon);
+    obj.editIcons.appendChild(obj.deleteIcon);
+    obj.header.appendChild(obj.title);
+    obj.header.appendChild(obj.editIcons);
+    obj.item.appendChild(obj.header);
+    obj.item.appendChild(obj.footer);
+    console.log(obj.item);
+    return obj.item;
   }
   function clearItemList() {
     while(itemList.firstChild) {
@@ -104,7 +119,6 @@
     }
     return window.getAllRunsFromAPlaylist(window.playlist_id)
       .then((res) => {
-        console.log(res.data.data);
         const playlistRunsList = res.data.data;
         const promises = [];
         playlistRunsList.forEach((playlistRunsData) => {
@@ -116,8 +130,11 @@
       .then((responses) => {
         responses.forEach((response) => {
           let runData = response.data.data;
-          const item = createItem(runData, 'RUN');
-          itemList.appendChild(item);
+          console.log(runData);
+          createItem(runData, 'RUN')
+            .then((item) => {
+              itemList.appendChild(item);
+            });
         });
       })
       .catch((err) => {
