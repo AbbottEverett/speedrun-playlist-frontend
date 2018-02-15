@@ -6,9 +6,9 @@
     const footer = document.createElement('footer');
     const title = document.createElement('h3');
     const editIcons = document.createElement('div');
-    const updateIconCont = document.createElement('div');
+    const updateIconCont = document.createElement('button');
     const updateIcon = document.createElement('i');
-    const deleteIconCont = document.createElement('div');
+    const deleteIconCont = document.createElement('button');
     const deleteIcon = document.createElement('i');
 
     item.classList = 'item-container';
@@ -27,8 +27,10 @@
           window.currentView = window.views[2];
           window.changeView(window.currentView, window.selectedUser);
         });
+        deleteIconCont.setAttribute('data-toggle', 'modal');
+        deleteIconCont.setAttribute('data-target', '#deletePlaylistModal');
         deleteIconCont.addEventListener('click', (e) => {
-          console.log('DELETE');
+          window.playlist_id = item.getAttribute('data-playlist-id');
         });
         updateIconCont.addEventListener('click', (e) => {
           console.log('UPDATE');
