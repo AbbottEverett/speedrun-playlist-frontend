@@ -16,12 +16,28 @@
     iFrame.setAttribute('scrolling', 'no');
     iFrame.setAttribute('height', 378);
     iFrame.setAttribute('width', 620);
-    // <iframe src="https://player.twitch.tv/?autoplay=false&video=v178152895" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620">
-    // </iframe>
     videoBox.appendChild(iFrame);
   }
   function renderYouTubeVideo(videoUrl) {
-
+    const check = '.com/watch?v=';
+    const index = videoUrl.indexOf(check);
+    const videoId = videoUrl.slice(index+check.length);
+    const iFrame = document.createElement('iframe');
+    iFrame.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+    iFrame.setAttribute('frameborder', 0);
+    iFrame.setAttribute('allow', 'autoplay; encrypted-media');
+    iFrame.setAttribute('allowfullscreen', true);
+    iFrame.setAttribute('height', 315);
+    iFrame.setAttribute('width', 560);
+    videoBox.appendChild(iFrame);
+    // <iframe
+    //   width="560"
+    //   height="315"
+    //   src="https://www.youtube.com/embed/mSng9jvTo4o"
+    //   frameborder="0"
+    //   allow="autoplay; encrypted-media"
+    //   allowfullscreen>
+    // </iframe>
   }
   function renderVideoBox(videoUrl) {
     console.log(videoUrl);
@@ -31,7 +47,7 @@
       if (videoUrl.includes(twitchURL)) {
         renderTwitchVideo(videoUrl);
       } else if (videoUrl.includes(youtubeURL)) {
-        console.log('Youtube');
+        renderYouTubeVideo(videoUrl);
       }
     } else {
       // Render some error message
