@@ -8,6 +8,8 @@
   const playlistsToggle = document.getElementById('playlists-toggle');
   const runsToggle = document.getElementById('runs-toggle');
   const views = ['HOME', 'USER', 'PLAYLIST', 'RUN'];
+  const speedrunSearch = document.getElementById('speedrun-search');
+  const videoContainer = document.getElementById('video-container');
 
   function changeView(view, user) {
     clearPreviousView(view, user);
@@ -34,6 +36,8 @@
     findBtn.classList.remove('d-none');
     createPlaylistBtn.classList.remove('d-none');
     viewToggle.classList.remove('d-none');
+    speedrunSearch.classList.remove('d-none');
+    videoContainer.classList.remove('d-none');
     subtitle.textContent = '';
     window.renderDropDown(view, user);
   }
@@ -42,10 +46,14 @@
     backBtn.classList.add('d-none');
     createPlaylistBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
+    speedrunSearch.classList.add('d-none');
+    videoContainer.classList.add('d-none');
     subtitle.textContent = 'Select A User';
   }
   function setUserView(user) {
     subtitle.textContent = 'Choose A Playlist';
+    speedrunSearch.classList.add('d-none');
+    videoContainer.classList.add('d-none');
     runsToggle.disabled = false;
     playlistsToggle.disabled = true;
     const type = 'PLAYLIST';
@@ -59,6 +67,8 @@
   function setPlaylistView(user) {
     subtitle.textContent = 'Pick A Run';
     createPlaylistBtn.classList.add('d-none');
+    speedrunSearch.classList.add('d-none');
+    videoContainer.classList.add('d-none');
     const type = 'RUN';
     if (user !== 'Admin') {
       viewToggle.classList.add('d-none');
