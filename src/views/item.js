@@ -47,14 +47,12 @@
 
   }
   function appendItemElements(obj){
-    console.log(obj);
     obj.editIcons.appendChild(obj.updateIcon);
     obj.editIcons.appendChild(obj.deleteIcon);
     obj.header.appendChild(obj.title);
     obj.header.appendChild(obj.editIcons);
     obj.item.appendChild(obj.header);
     obj.item.appendChild(obj.footer);
-    console.log(obj.item);
     return obj.item;
   }
   function clearItemList() {
@@ -92,7 +90,6 @@
 
     return window.getAllPlaylistsByUserId(window.user_id)
       .then((res) => {
-        console.log(res.data.data);
         const playlistsList = res.data.data;
         playlistsList.forEach((playlistData) => {
           const item = createItem(playlistData, 'PLAYLIST');
@@ -109,8 +106,10 @@
         .then((res) => {
           const runsList = res.data.data;
           runsList.forEach((runData) => {
-            const item = createItem(runData, 'RUN');
-            itemList.appendChild(item);
+            createItem(runData, 'RUN')
+              .then((item) => {
+                itemList.appendChild(item);
+              });
           });
         })
         .catch((err) => {
@@ -130,7 +129,6 @@
       .then((responses) => {
         responses.forEach((response) => {
           let runData = response.data.data;
-          console.log(runData);
           createItem(runData, 'RUN')
             .then((item) => {
               itemList.appendChild(item);
