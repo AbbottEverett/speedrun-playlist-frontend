@@ -1,9 +1,21 @@
 (function() {
   const videoBox = document.getElementById('video-box');
+  const videoTitle = document.getElementById('video-title');
+  const categoryText = document.getElementById('category-text');
+  const runTimeText = document.getElementById('run-time-text');
+  const platformText = document.getElementById('platform-text');
+  const dateText = document.getElementById('date-text');
   function clearVideoBox() {
     while(videoBox.firstChild) {
       videoBox.removeChild(videoBox.firstChild);
     }
+  }
+  function clearVideoDescription() {
+    videoTitle.textContent = 'Game Title';
+    categoryText.textContent = '';
+    runTimeText.textContent = '';
+    platformText.textContent = '';
+    dateText.textContent = '';
   }
   function renderTwitchVideo(videoUrl) {
     const check = '.tv/videos/';
@@ -30,14 +42,6 @@
     iFrame.setAttribute('height', 315);
     iFrame.setAttribute('width', 560);
     videoBox.appendChild(iFrame);
-    // <iframe
-    //   width="560"
-    //   height="315"
-    //   src="https://www.youtube.com/embed/mSng9jvTo4o"
-    //   frameborder="0"
-    //   allow="autoplay; encrypted-media"
-    //   allowfullscreen>
-    // </iframe>
   }
   function renderVideoBox(videoUrl) {
     console.log(videoUrl);
@@ -51,6 +55,7 @@
       }
     } else {
       // Render some error message
+      videoBox.textContent = 'No video provided! :[';
     }
   }
   function renderRunTest() {
@@ -58,11 +63,17 @@
       .then((res) => {
         const game = res.data.data;
         clearVideoBox();
+        clearVideoDescription();
         renderVideoBox(game.video_url);
+        dateText.textContent = game.date;
         return window.getRunData(game);
       })
       .then((res) => {
-
+        console.log(res);
+        videoTitle.textContent = res.name;
+        categoryText.textContent = res.category;
+        platformText.textContent = res.platform;
+        runTimeText.textContent = res.duration;
       })
       .catch((err) => {
         console.log(err)
