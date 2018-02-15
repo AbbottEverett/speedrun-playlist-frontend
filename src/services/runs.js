@@ -12,6 +12,9 @@
   function getARunByIdFromAPlaylist(playlistId, runId) {
     return axios.get(`${baseURL}/playlists/${playlistId}/runs/${runId}`);
   }
+  function createANewRun(reqBody) {
+    return axios.post(`${baseURL}/runs`, reqBody);
+  }
   function addARunToAPlaylistById(playlistId, reqBody) {
     return axios.post(`${baseURL}/playlists/${playlistId}/runs`, reqBody);
   }
@@ -22,6 +25,7 @@
   window.getRunById = getRunById;
   window.getAllRunsFromAPlaylist = getAllRunsFromAPlaylist;
   window.getARunByIdFromAPlaylist = getARunByIdFromAPlaylist;
+  window.createANewRun = createANewRun;
   window.addARunToAPlaylistById = addARunToAPlaylistById;
   window.deleteARunFromAPlaylistById = deleteARunFromAPlaylistById;
 })();

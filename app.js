@@ -1,5 +1,5 @@
 (function() {
-  let currentView = window.views[3];
+  let currentView = window.views[0];
   let selectedUser;
   let user_id;
   let playlist_id;
