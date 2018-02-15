@@ -9,7 +9,11 @@
   function getPlaylistById(id) {
     return axios.get(`${baseURL}/playlists/${id}`);
   }
+  function createNewPlaylist(reqBody) {
+    return axios.post(`${baseURL}/playlists`, reqBody);
+  }
   window.getAllPlaylists = getAllPlaylists;
   window.getPlaylistById = getPlaylistById;
   window.getAllPlaylistsByUserId = getAllPlaylistsByUserId;
+  window.createNewPlaylist = createNewPlaylist;
 })();
