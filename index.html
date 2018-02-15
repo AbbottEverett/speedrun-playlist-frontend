@@ -71,27 +71,29 @@
 				<div id="video-box">
 					<img src="http://via.placeholder.com/620x378">
 				</div>
-				<div id="video-description" class="d-flex flex-column justify-content-center">
-					<h5>Super Mario RPG: Legend of the Seven Stars</h5>
+				<div id="video-description" class="d-flex flex-column">
+					<h5>Game Title</h5>
 					<ul>
 						<li>Category: <span></span></li>
 						<li>Run Time: <span></span></li>
 						<li>Platform: <span></span></li>
 						<li>Date Submitted: <span></span></li>
 					</ul>
-					<div class="d-flex">
-						<label for="playlist-dropdown">
-							Playlist:
-						</label>
-						<div id="playlist-dropdown" class="dropdown">
-						  <button id="playlist-dropdown-primary" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    select a playlist
-						  </button>
-						  <div id="playlist-dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-						  </div>
+					<form id="playlist-runs-form">
+						<div class="d-flex">
+							<label for="playlist-dropdown">
+								Playlist:
+							</label>
+							<div id="playlist-dropdown" class="dropdown">
+							  <button id="playlist-dropdown-primary" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    select a playlist
+							  </button>
+							  <div id="playlist-dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							  </div>
+							</div>
 						</div>
-					</div>
-					<button type="button" class="btn btn-success">Add to Playlist</button>
+						<button type="button" class="btn btn-success">Add to Playlist</button>
+					</form>
 				</div>
 			</div>
 
@@ -189,6 +191,7 @@
 		<script src="./src/services/playlists.js"></script>
 		<script src="./src/services/users.js"></script>
 		<!-- View Manipulation -->
+		<script src="./src/views/find-a-speedrun-btn.js"></script>
 		<script src="./src/views/update-playlist.js"></script>
 		<script src="./src/views/delete-playlist.js"></script>
 		<script src="./src/views/create-playlist.js"></script>

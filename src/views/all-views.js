@@ -10,6 +10,7 @@
   const views = ['HOME', 'USER', 'PLAYLIST', 'RUN'];
   const speedrunSearch = document.getElementById('speedrun-search');
   const videoContainer = document.getElementById('video-container');
+  const playlistRunsForm = document.getElementById('playlist-runs-form');
 
   function changeView(view, user) {
     clearPreviousView(view, user);
@@ -38,6 +39,7 @@
     viewToggle.classList.remove('d-none');
     speedrunSearch.classList.remove('d-none');
     videoContainer.classList.remove('d-none');
+    playlistRunsForm.classList.remove('d-none');
     subtitle.textContent = '';
     window.renderDropDown(view, user);
   }
@@ -77,9 +79,13 @@
   }
   function setRunView(user) {
     subtitle.textContent = 'Speedrun Search Engine';
+    itemList.classList.add('d-none');
     createPlaylistBtn.classList.add('d-none');
     viewToggle.classList.add('d-none');
     findBtn.classList.add('d-none');
+    if (!user) {
+      playlistRunsForm.classList.add('d-none');
+    }
   }
   window.views = views;
   window.changeView = changeView;
