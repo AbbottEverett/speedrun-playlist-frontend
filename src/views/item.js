@@ -6,26 +6,35 @@
     const footer = document.createElement('footer');
     const title = document.createElement('h3');
     const editIcons = document.createElement('div');
+    const updateIconCont = document.createElement('div');
     const updateIcon = document.createElement('i');
+    const deleteIconCont = document.createElement('div');
     const deleteIcon = document.createElement('i');
 
     item.classList = 'item-container';
     header.classList = 'd-flex justify-content-between';
     updateIcon.classList = 'fas fa-cog fa-2x';
     deleteIcon.classList = 'fas fa-times fa-2x';
+    editIcons.classList = 'd-flex justify-content-between';
 
     switch(type) {
       case 'PLAYLIST':
         title.textContent = data.name;
         footer.textContent = `USER_ID: ${data.user_id}`;
         item.setAttribute('data-playlist-id', data.id);
-        item.addEventListener('click', (e) => {
+        title.addEventListener('click', (e) => {
           window.playlist_id = item.getAttribute('data-playlist-id');
           window.currentView = window.views[2];
           window.changeView(window.currentView, window.selectedUser);
         });
+        deleteIconCont.addEventListener('click', (e) => {
+          console.log('DELETE');
+        });
+        updateIconCont.addEventListener('click', (e) => {
+          console.log('UPDATE');
+        });
         let allItemsToAppend = {
-          item, header, footer, title, editIcons, updateIcon, deleteIcon
+          item, header, footer, title, editIcons, updateIcon, updateIconCont, deleteIcon, deleteIconCont
         };
         return appendItemElements(allItemsToAppend);
         break;
@@ -36,7 +45,7 @@
             item.setAttribute('data-run-id', data.id);
             footer.textContent = `Category: ${response.category} | Platform: ${response.platform} | Duration: ${response.duration}`;
             let allItemsToAppend = {
-              item, header, footer, title, editIcons, updateIcon, deleteIcon
+              item, header, footer, title, editIcons, updateIcon, updateIconCont, deleteIcon, deleteIconCont
             };
             return appendItemElements(allItemsToAppend);
           });
@@ -47,8 +56,10 @@
 
   }
   function appendItemElements(obj){
-    obj.editIcons.appendChild(obj.updateIcon);
-    obj.editIcons.appendChild(obj.deleteIcon);
+    obj.updateIconCont.appendChild(obj.updateIcon);
+    obj.deleteIconCont.appendChild(obj.deleteIcon);
+    obj.editIcons.appendChild(obj.updateIconCont);
+    obj.editIcons.appendChild(obj.deleteIconCont);
     obj.header.appendChild(obj.title);
     obj.header.appendChild(obj.editIcons);
     obj.item.appendChild(obj.header);
