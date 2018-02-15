@@ -22,7 +22,7 @@
         setPlaylistView(user);
         break;
       case 'RUN':
-        console.log('Will be handled later');
+        setRunView(user);
         break;
       default:
         console.log('Something is wrong!');
@@ -65,7 +65,12 @@
     }
     window.renderItemList(user, type);
   }
-
+  function setRunView(user) {
+    subtitle.textContent = 'Speedrun Search Engine';
+    createPlaylistBtn.classList.add('d-none');
+    viewToggle.classList.add('d-none');
+    findBtn.classList.add('d-none');
+  }
   window.views = views;
   window.changeView = changeView;
 })();

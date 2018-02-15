@@ -22,7 +22,7 @@
 			<div class="row justify-content-center subtitle">
 				<h2 id="subtitle">Change Me Depending on View</h2>
 			</div>
-			<div class="row justify-content-between">
+			<div id="menu-bar" class="row justify-content-between">
 				<div class="d-flex">
 					<label for="user-dropdown">
 						User:
@@ -51,6 +51,50 @@
 					Back
 				</button>
 			</div>
+			<div id="speedrun-search">
+				<form>
+					<div class="form-row">
+						<div class="input-group mb-3">
+						  <div class="input-group-prepend">
+						    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search fa-lg"></i></span>
+						  </div>
+						  <input type="text" class="form-control" placeholder="Enter Name of a Video Game Here" aria-label="Username" aria-describedby="basic-addon1">
+						</div>
+					</div>
+					<div class="form-row d-flex justify-content-between">
+						<button type="button" id="search-btn" class="btn btn-primary">Search</button>
+						<button type="button" id="random-btn" class="btn btn-success">Give Me a Random Game</button>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<div id="video-box">
+					<img src="http://via.placeholder.com/620x378">
+				</div>
+				<div id="video-description" class="d-flex flex-column justify-content-center">
+					<h5>Super Mario RPG: Legend of the Seven Stars</h5>
+					<ul>
+						<li>Category: <span></span></li>
+						<li>Run Time: <span></span></li>
+						<li>Platform: <span></span></li>
+						<li>Date Submitted: <span></span></li>
+					</ul>
+					<div class="d-flex">
+						<label for="playlist-dropdown">
+							Playlist:
+						</label>
+						<div id="playlist-dropdown" class="dropdown">
+						  <button id="playlist-dropdown-primary" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    select a playlist
+						  </button>
+						  <div id="playlist-dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						  </div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-success">Add to Playlist</button>
+				</div>
+			</div>
+
 			<div id="item-list">
 			</div>
 
