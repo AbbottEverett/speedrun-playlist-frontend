@@ -53,11 +53,11 @@
               window.currentView = window.views[3];
               window.changeView(window.currentView, window.selectedUser);
             });
+            deleteIconCont.setAttribute('data-toggle', 'modal');
+            deleteIconCont.setAttribute('data-target', '#deleteRunModal');
             deleteIconCont.addEventListener('click', (e) => {
-              console.log('DELETE');
-            });
-            updateIconCont.addEventListener('click', (e) => {
-              console.log('UPDATE');
+              window.run_id = item.getAttribute('data-run-id');
+              console.log(window.run_id);
             });
             let allItemsToAppend = {
               item, header, footer, title, editIcons, updateIcon, updateIconCont, deleteIcon, deleteIconCont

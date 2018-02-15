@@ -15,10 +15,13 @@
   function addARunToAPlaylistById(playlistId, reqBody) {
     return axios.post(`${baseURL}/playlists/${playlistId}/runs`, reqBody);
   }
-
+  function deleteARunFromAPlaylistById(playlistId, runId) {
+    return axios.delete(`${baseURL}/playlists/${playlistId}/runs/${runId}`);
+  }
   window.getAllRuns = getAllRuns;
   window.getRunById = getRunById;
   window.getAllRunsFromAPlaylist = getAllRunsFromAPlaylist;
   window.getARunByIdFromAPlaylist = getARunByIdFromAPlaylist;
   window.addARunToAPlaylistById = addARunToAPlaylistById;
+  window.deleteARunFromAPlaylistById = deleteARunFromAPlaylistById;
 })();
