@@ -1,10 +1,7 @@
 (function() {
   const playlistRunsForm = document.getElementById('playlist-runs-form');
-  console.log(playlistRunsForm);
   playlistRunsForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(`Playlist Id: ${window.playlist_id}`);
-    console.log(`Run Id: ${window.run_id}`);
     // Check if run exists by Id
     // if it does, add playlist run only
     // if it doesnt, add run, then playlist run
@@ -17,7 +14,9 @@
     };
     window.addARunToAPlaylistById(window.playlist_id, reqBody)
       .then((res) => {
-        console.log(res);
+        window.run_id = undefined;
+        window.currentView = window.views[2];
+        window.changeView(window.currentView, window.selectedUser);
       })
       .catch((err) => {
         console.log(err);

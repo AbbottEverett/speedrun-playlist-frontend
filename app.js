@@ -1,6 +1,6 @@
 (function() {
-  let currentView = window.views[2];
-  let selectedUser = 'Admin';
+  let currentView = window.views[0];
+  let selectedUser;
   let user_id;
   let playlist_id;
   let run_id;
