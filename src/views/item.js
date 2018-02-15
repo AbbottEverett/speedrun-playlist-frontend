@@ -48,6 +48,11 @@
             title.textContent = response.name;
             item.setAttribute('data-run-id', data.id);
             footer.textContent = `Category: ${response.category} | Platform: ${response.platform} | Duration: ${response.duration}`;
+            title.addEventListener('click', (e) => {
+              window.run_id = item.getAttribute('data-run-id');
+              window.currentView = window.views[3];
+              window.changeView(window.currentView, window.selectedUser);
+            });
             deleteIconCont.addEventListener('click', (e) => {
               console.log('DELETE');
             });

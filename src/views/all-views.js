@@ -86,6 +86,10 @@
     if (!user) {
       playlistRunsForm.classList.add('d-none');
     }
+    if (window.run_id) {
+      console.log(window.run_id);
+      window.renderRunTest();
+    }
     window.renderPlaylistDropDown(user);
   }
   window.views = views;
