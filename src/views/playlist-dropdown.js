@@ -24,10 +24,18 @@
     if (window.user_id) {
       return window.getAllPlaylistsByUserId(window.user_id)
                 .then((response) => {
-                  console.log(response.data.data);
+                  const playlistList = response.data.data;
+                  playlistList.forEach((playlist) => {
+                    if(playlist.id !== parseInt(window.playlist_id)) {
+                      const button = createDropDownButton(playlist);
+                      playlistDropdownMenu.appendChild(button);
+                    } else {
+                      playlistDropdownPrimary.textContent = playlist.name;
+                    }
+                  });
                 })
                 .catch((err) => {
-
+                  console.log(err);
                 });
     }
 
