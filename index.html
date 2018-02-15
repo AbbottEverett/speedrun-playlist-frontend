@@ -52,17 +52,17 @@
 				</button>
 			</div>
 			<div id="speedrun-search">
-				<form>
+				<form id="speedrun-search-form">
 					<div class="form-row">
 						<div class="input-group mb-3">
 						  <div class="input-group-prepend">
 						    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search fa-lg"></i></span>
 						  </div>
-						  <input type="text" class="form-control" placeholder="Enter Name of a Video Game Here" aria-label="Username" aria-describedby="basic-addon1">
+						  <input id="speedrun-search-input" type="text" class="form-control" placeholder="Enter Name of a Video Game Here" aria-label="Username" aria-describedby="basic-addon1">
 						</div>
 					</div>
 					<div class="form-row d-flex justify-content-between">
-						<button type="button" id="search-btn" class="btn btn-primary">Search</button>
+						<button type="submit" id="search-btn" class="btn btn-primary">Search</button>
 						<button type="button" id="random-btn" class="btn btn-success">Give Me a Random Game</button>
 					</div>
 				</form>
@@ -209,11 +209,13 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 		<!-- Data Services -->
+		<script src="./src/services/games.js"></script>
 		<script src="./src/services/speedrun.js"></script>
 		<script src="./src/services/runs.js"></script>
 		<script src="./src/services/playlists.js"></script>
 		<script src="./src/services/users.js"></script>
 		<!-- View Manipulation -->
+		<script src="./src/views/speedrun-search.js"></script>
 		<script src="./src/views/delete-run.js"></script>
 		<script src="./src/views/add-video-to-playlist.js"></script>
 		<script src="./src/views/runs-info.js"></script>

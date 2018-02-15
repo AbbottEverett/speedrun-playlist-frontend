@@ -44,7 +44,6 @@
     videoBox.appendChild(iFrame);
   }
   function renderVideoBox(videoUrl) {
-    console.log(videoUrl);
     const twitchURL = 'https://www.twitch.tv/';
     const youtubeURL = 'https://www.youtube.com/';
     if (videoUrl) {
@@ -52,6 +51,8 @@
         renderTwitchVideo(videoUrl);
       } else if (videoUrl.includes(youtubeURL)) {
         renderYouTubeVideo(videoUrl);
+      } else {
+        videoBox.textContent = 'Unsupported Video Format';
       }
     } else {
       // Render some error message
@@ -80,8 +81,16 @@
         console.log(err)
       });
   }
+  function renderVideoDesciption(data){
+    videoTitle.textContent = data.name;
+    categoryText.textContent = data.category;
+    platformText.textContent = data.platform;
+    runTimeText.textContent = data.duration;
+    dateText.textContent = data.date;
+  }
   window.renderRun = renderRun;
   window.clearVideoBox = clearVideoBox;
   window.clearVideoDescription = clearVideoDescription;
   window.renderVideoBox = renderVideoBox;
+  window.renderVideoDesciption = renderVideoDesciption;
 })();
