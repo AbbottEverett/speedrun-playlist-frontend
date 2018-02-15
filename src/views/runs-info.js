@@ -55,10 +55,12 @@
       }
     } else {
       // Render some error message
-      videoBox.textContent = 'No video provided! :[';
+      const placeholder = document.createElement('img');
+      placeholder.setAttribute('src', 'http://via.placeholder.com/620x378');
+      videoBox.appendChild(placeholder);
     }
   }
-  function renderRunTest() {
+  function renderRun() {
     return window.getRunById(window.run_id)
       .then((res) => {
         const game = res.data.data;
@@ -78,5 +80,8 @@
         console.log(err)
       });
   }
-  window.renderRunTest = renderRunTest;
+  window.renderRun = renderRun;
+  window.clearVideoBox = clearVideoBox;
+  window.clearVideoDescription = clearVideoDescription;
+  window.renderVideoBox = renderVideoBox;
 })();

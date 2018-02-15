@@ -5,6 +5,7 @@
     window.selectedUser = undefined;
     window.user_id = undefined;
     window.playlist_id = undefined;
+    window.run_id = undefined;
     window.currentView = window.views[0];
     window.changeView(window.currentView, window.selectedUser);
   });

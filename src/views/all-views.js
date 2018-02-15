@@ -86,11 +86,15 @@
     if (!user) {
       playlistRunsForm.classList.add('d-none');
     }
+    window.clearVideoBox();
+    window.clearVideoDescription();
+    window.renderVideoBox();
     if (window.run_id) {
       console.log(window.run_id);
-      window.renderRunTest();
+      window.renderRun();
     }
     window.renderPlaylistDropDown(user);
+
   }
   window.views = views;
   window.changeView = changeView;
