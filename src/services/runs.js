@@ -12,8 +12,13 @@
   function getARunByIdFromAPlaylist(playlistId, runId) {
     return axios.get(`${baseURL}/playlists/${playlistId}/runs/${runId}`);
   }
+  function addARunToAPlaylistById(playlistId, reqBody) {
+    return axios.post(`${baseURL}/playlists/${playlistId}/runs`, reqBody);
+  }
+
   window.getAllRuns = getAllRuns;
   window.getRunById = getRunById;
   window.getAllRunsFromAPlaylist = getAllRunsFromAPlaylist;
   window.getARunByIdFromAPlaylist = getARunByIdFromAPlaylist;
+  window.addARunToAPlaylistById = addARunToAPlaylistById;
 })();

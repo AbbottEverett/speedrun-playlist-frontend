@@ -69,7 +69,6 @@
         return window.getRunData(game);
       })
       .then((res) => {
-        console.log(res);
         videoTitle.textContent = res.name;
         categoryText.textContent = res.category;
         platformText.textContent = res.platform;
