@@ -44,6 +44,12 @@
             title.textContent = response.name;
             item.setAttribute('data-run-id', data.id);
             footer.textContent = `Category: ${response.category} | Platform: ${response.platform} | Duration: ${response.duration}`;
+            deleteIconCont.addEventListener('click', (e) => {
+              console.log('DELETE');
+            });
+            updateIconCont.addEventListener('click', (e) => {
+              console.log('UPDATE');
+            });
             let allItemsToAppend = {
               item, header, footer, title, editIcons, updateIcon, updateIconCont, deleteIcon, deleteIconCont
             };
