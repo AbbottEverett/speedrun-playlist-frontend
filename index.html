@@ -94,7 +94,7 @@
 						<form id="delete-playlist-form">
 							<div class="modal-body">
 								<p>
-									HONK!
+									Are you sure you want to delete your playlist?
 								</p>
 							</div>
 							<div class="modal-footer">
@@ -105,6 +105,32 @@
 					</div>
 				</div>
 			</div>
+			<!-- Update Playlist Modal -->
+			<div class="modal fade" id="updatePlaylistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title">Update Playlist</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+						<form id="update-playlist-form">
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="playlist-name-input">Playlist Name</label>
+	  							<input type="text" class="form-control" id="update-playlist-name-input" aria-describedby="emailHelp" placeholder="Enter Playlist Name">
+								</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" id="update-new-playlist-btn" class="btn btn-primary">Save changes</button>
+				      </div>
+						</form>
+			    </div>
+			  </div>
+			</div>
+
 		</div>
 
 
@@ -119,6 +145,7 @@
 		<script src="./src/services/playlists.js"></script>
 		<script src="./src/services/users.js"></script>
 		<!-- View Manipulation -->
+		<script src="./src/views/update-playlist.js"></script>
 		<script src="./src/views/delete-playlist.js"></script>
 		<script src="./src/views/create-playlist.js"></script>
 		<script src="./src/views/item.js"></script>

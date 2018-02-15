@@ -32,8 +32,10 @@
         deleteIconCont.addEventListener('click', (e) => {
           window.playlist_id = item.getAttribute('data-playlist-id');
         });
+        updateIconCont.setAttribute('data-toggle', 'modal');
+        updateIconCont.setAttribute('data-target', '#updatePlaylistModal');
         updateIconCont.addEventListener('click', (e) => {
-          console.log('UPDATE');
+          window.playlist_id = item.getAttribute('data-playlist-id');
         });
         let allItemsToAppend = {
           item, header, footer, title, editIcons, updateIcon, updateIconCont, deleteIcon, deleteIconCont

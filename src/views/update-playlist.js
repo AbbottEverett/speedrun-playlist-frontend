@@ -1,16 +1,17 @@
 (function() {
-  const savePlaylistForm = document.getElementById('save-playlist-form');
-  const input = document.getElementById('playlist-name-input');
-  savePlaylistForm.addEventListener('submit', (e) => {
+  const updatePlaylistForm = document.getElementById('update-playlist-form');
+  const input = document.getElementById('update-playlist-name-input');
+
+  updatePlaylistForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     if(input.value.length > 0) {
-      // console.log(input.value);
-      $('#createPlaylistModal').modal('hide');
+      $('#updatePlaylistModal').modal('hide');
       let reqBody = {
         name: input.value,
         user_id: window.user_id
       };
-      window.createNewPlaylist(reqBody)
+      window.updatePlaylist(window.playlist_id, reqBody)
         .then((res) => {
           window.playlist_id = undefined;
           window.renderItemList(window.selectedUser, 'PLAYLIST');
@@ -20,8 +21,6 @@
         });
     }
     input.value = '';
-
-
-
   });
+
 })();

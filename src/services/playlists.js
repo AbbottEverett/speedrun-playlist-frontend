@@ -15,9 +15,13 @@
   function deletePlaylist(id) {
     return axios.delete(`${baseURL}/playlists/${id}`);
   }
+  function updatePlaylist(id, reqBody) {
+    return axios.patch(`${baseURL}/playlists/${id}`, reqBody);
+  }
   window.getAllPlaylists = getAllPlaylists;
   window.getPlaylistById = getPlaylistById;
   window.getAllPlaylistsByUserId = getAllPlaylistsByUserId;
   window.createNewPlaylist = createNewPlaylist;
   window.deletePlaylist = deletePlaylist;
+  window.updatePlaylist = updatePlaylist;
 })();
