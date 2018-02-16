@@ -1,5 +1,5 @@
 (function() {
-  const baseURL = 'http://localhost:3000';
+  const baseURL = 'https://stormy-coast-63832.herokuapp.com';
   function getAllPlaylists() {
     return axios.get(`${baseURL}/playlists`);
   }
