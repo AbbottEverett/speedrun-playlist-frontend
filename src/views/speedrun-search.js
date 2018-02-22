@@ -19,12 +19,4 @@
       });
     input.value = '';
   });
-
-  // data i need
-  // game_id
-  // category_id
-  // run_time
-  // platform_id
-  //video_url
-  // date
 })();
